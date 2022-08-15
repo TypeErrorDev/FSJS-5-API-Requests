@@ -42,6 +42,7 @@ Frameworks, libraries or plugins are not permitted as the focus of this project 
 ### Style Updates
 
 - I switched the styles to show a little SASSyness
+  - [SASS](https://sass-lang.com) - Go here to install and compile the SASS files
 - Took the modal from randomuser's API site, and figured I'd give that style a try
 
 ### What I learned
