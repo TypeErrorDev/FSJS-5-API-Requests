@@ -30,20 +30,17 @@ Frameworks, libraries or plugins are not permitted as the focus of this project 
 
 ### Links
 
-- Live Site URL: [Employee API Database hosted by Netlify](...)
+- Live Site URL: [Employee API Database hosted by Netlify](https://typeerrordev-employee-api.netlify.app/)
 
 ## My process
 
 ### Built with
 
 - [Javascript](https://262.ecma-international.org/13.0/#sec-intro) - ES6
-- [SASS](https://sass-lang.com) - Dart SASS
 
 ### Style Updates
 
-- I switched the styles to show a little SASSyness
-  - [SASS](https://sass-lang.com) - Go here to install and compile the SASS files
-- Took the modal from randomuser's API site, and figured I'd give that style a try
+- Modal was "inspired by the modal from randomuser's API site
 
 ### What I learned
 
@@ -55,4 +52,4 @@ Frameworks, libraries or plugins are not permitted as the focus of this project 
 
 ## Acknowledgments
 
-I'd like to give thanks to the Student Success Mentors with Team Treehouse, the other students in their Slack channel and my friends on Discord that helped me along the way. Without everyone's support, I'd still be figuring out how to use center a Div in CSS.
+I'd like to give thanks to the Student Success Mentors with Team Treehouse, the other students in their Slack channel and my friends on Discord that helped me along the way. Without everyone's support, I'd still be figuring out how to center a <div>
