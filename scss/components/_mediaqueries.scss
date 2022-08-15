@@ -1,7 +1,8 @@
 @use "../util/" as *;
 
 // TABLET MEDIA QUERY
-@media (min-width: $breakpoint-tablet) {
+// testing
+@include layout(tablet) {
   .header-inner-container {
     display: flex;
     flex-direction: row;
@@ -10,7 +11,7 @@
     padding-right: 25px;
     padding-left: 25px;
   }
-
+  //
   .header-text-container {
     text-align: left;
   }
@@ -25,7 +26,7 @@
 }
 
 // DESKTOP MEDIA QUERY
-@media (min-width: $breakpoint-desktop) {
+@include layout(desktop) {
   .card:hover {
     background: rgba(255, 255, 255, 1);
     border: 1px solid rgba(50, 50, 50, 0.9);
