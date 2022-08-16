@@ -9,6 +9,7 @@ let employeeNumber = "";
 function fetchData(url) {
   return fetch(url).then((res) => res.json());
 }
+
 fetchData(apiURL)
   .then((data) => data.results)
   .then(employeeAppend)
@@ -65,9 +66,7 @@ function modalDisplay(position) {
                     )}</p>
                     <p class="modal-text">${attribute.location.street.number} ${
           attribute.location.street.name
-        }, ${attribute.location.city}, ${attribute.location.state}, ${
-          attribute.location.postcode
-        }</p>
+        }, ${attribute.location.city}, ${attribute.location.state}</p>
                     <p class="modal-text">Birthday: ${dateFormat(
                       attribute.dob.date
                     )}</p>
@@ -94,7 +93,7 @@ function closeButton() {
     });
   }
 }
-//convert date based on required format
+
 function dateFormat(number) {
   let newdate = number.split("T")[0].replace(/-/g, "/").split("/");
   const convertdate = `${newdate[1]}\/${newdate[2]}\/${newdate[0]} `;
@@ -111,7 +110,6 @@ function searchBar() {
 
     const searchInput = document.querySelector("#search-input");
     const renderedCards = document.querySelectorAll(".card");
-    const gallery = document.querySelector(".gallery");
 
     searchInput.addEventListener("keyup", () => {
       for (let i = 0; i < renderedCards.length; i++) {

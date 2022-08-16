@@ -46,7 +46,7 @@ header h1 {
 .search-input:active,
 .search-input:hover,
 .search-input:focus {
-  border: 1px solid rgba(50, 50, 50, 0.9);
+  border: 1px double green;
 }
 
 .search-submit {
@@ -99,9 +99,13 @@ header h1 {
 .card-img {
   width: 95px;
   margin: 10px 15px auto 10px;
-  border-radius: 50%;
+  border-radius: 20px 5px 20px 5px;
+  border: 3px double rgba(50, 50, 50, 0.9);
+  box-shadow: 1px 1px 0px rgba(50, 50, 50, 0.7);
 }
-
+.card-img:hover {
+  box-shadow: 2px 2px 3px rgba(50, 50, 50, 0.9);
+}
 .card-info-container {
   text-align: left;
 }
@@ -153,15 +157,21 @@ header h1 {
   right: 15px;
   cursor: pointer;
   color: rgba(255, 255, 255, 0.9);
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9);
   border-radius: 0.25em;
   border: 1px solid rgba(50, 50, 50, 0.3);
+}
+.modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(50, 50, 50, 0.9);
 }
 
 .modal-img {
   width: 150px;
   margin-top: 35px;
-  border-radius: 50%;
+  border-radius: 2vw 5px 2vw 5px;
+  border: 3px double rgba(50, 50, 50, 0.9);
 }
 
 .modal-name {
@@ -203,6 +213,13 @@ header h1 {
   background: rgba(0, 0, 0, 0.8);
   border-radius: 0.35em;
   transition: 0.4s ease-out;
+}
+.modal-btn-container .btn:hover {
+  transform: rotate(3deg);
+  transition: all 0.4s ease-out;
+}
+.hidden {
+  display: none;
 }
 
 /* ===================================== 
@@ -255,8 +272,4 @@ header h1 {
     background: rgba(255, 255, 255, 1);
     color: rgba(25, 25, 25, 1);
   }
-}
-
-.hidden {
-  display: none;
 }
