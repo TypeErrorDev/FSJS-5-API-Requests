@@ -1,7 +1,11 @@
 const gallery = document.querySelector("#gallery");
 const body = document.querySelector("body");
 const search = document.querySelector(".search-container");
-const apiURL = "https://randomuser.me/api/?nat=us&results=12";
+const apiURL12 = "https://randomuser.me/api/?nat=us&results=12";
+// const apiURL12 = "https://randomuser.me/api/?nat=us&results=" + numOfResults;
+// const apiURL24 = "https://randomuser.me/api/?nat=us&results=24";
+// const apiURL36 = "https://randomuser.me/api/?nat=us&results=36";
+// const apiURL48 = "https://randomuser.me/api/?nat=us&results=48";
 let employeeData = "";
 let employeeNumber = "";
 
@@ -10,7 +14,7 @@ function fetchData(url) {
   return fetch(url).then((res) => res.json());
 }
 
-fetchData(apiURL)
+fetchData(apiURL12)
   .then((data) => data.results)
   .then(employeeAppend)
   .then(searchBar)
@@ -88,7 +92,7 @@ function closeButton() {
   const closeBtn = document.querySelector("#modal-close-btn");
   const modal = document.querySelector(".modal-container");
   if (closeBtn) {
-    closeBtn.addEventListener("click", (e) => {
+    closeBtn.addEventListener("click", () => {
       body.removeChild(modal);
     });
   }
