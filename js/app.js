@@ -21,6 +21,7 @@ function fetchAPI(apiURL, employeeNumber) {
   fetchData(apiURL + employeeNumber)
     .then((data) => data.results)
     .then(employeeAppend)
+    .then(searchBar)
     .catch((err) => alert(err));
 }
 fetchAPI(apiURL, employeeNumber);
@@ -183,4 +184,3 @@ function searchBar() {
     });
   }
 }
-searchBar();
