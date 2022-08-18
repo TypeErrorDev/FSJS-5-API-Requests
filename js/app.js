@@ -2,34 +2,30 @@ const gallery = document.querySelector("#gallery");
 const body = document.querySelector("body");
 const search = document.querySelector(".search-container");
 let selectOption = document.querySelector("#resultsDisplayed");
-let apiURL = "https://randomuser.me/api/?nat=us&results=12";
+let apiURL = "https://randomuser.me/api/?nat=us&results=";
 let employeeData = "";
-let employeeNumber = "";
+let employeeNumber = "12";
 
-function fetchData(url) {
-  return fetch(url).then((res) => res.json());
+async function fetchData(url) {
+  const res = await fetch(url);
+  return await res.json();
 }
 
 selectOption.addEventListener("change", () => {
   employeeNumber = selectOption.value;
-  apiURL = `https://randomuser.me/api/?nat=us&results=${employeeNumber}`;
-  fetchData(apiURL).then((data) => {
-    employeeData = data.results;
-  });
-  employeeAppend(employeeData);
-  console.log(apiURL);
+  fetchAPI(apiURL, employeeNumber);
 });
 
-function fetchAPI() {
-  fetchData(apiURL)
+function fetchAPI(apiURL, employeeNumber) {
+  fetchData(apiURL + employeeNumber)
     .then((data) => data.results)
     .then(employeeAppend)
-    .then(searchBar)
     .catch((err) => alert(err));
 }
-fetchAPI();
+fetchAPI(apiURL, employeeNumber);
 
 function employeeAppend(attributes) {
+  console.log("DEBUG", attributes);
   employeeData = attributes;
   const values = employeeData
     .map(
@@ -45,7 +41,7 @@ function employeeAppend(attributes) {
     </div>`
     )
     .join("");
-
+  gallery.innerHTML = "";
   gallery.insertAdjacentHTML("beforeend", values);
   const cards = document.querySelectorAll(".card");
   cards.forEach((card, index) =>
@@ -148,7 +144,7 @@ function searchBar() {
     });
   }
 }
-
+searchBar();
 //Event Listeners for Next & Prev Buttons
 document.addEventListener("click", (e) => {
   if (e.target && e.target.id === "modal-next") {

@@ -53,3 +53,5 @@ Frameworks, libraries or plugins are not permitted as the focus of this project 
 ## Acknowledgments
 
 I'd like to give thanks to the Student Success Mentors with Team Treehouse, the other students in their Slack channel and my friends on Discord that helped me along the way. Without everyone's support, I'd still be figuring out how to center a <div>
+
+Finally, I'd like to acknowledge Voice Chat 3 in #100Devs for assisting me with the project.
