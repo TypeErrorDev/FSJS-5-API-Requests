@@ -1,3 +1,6 @@
+/* ==================================
+              VARIABLES
+===================================== */
 const gallery = document.querySelector("#gallery");
 const body = document.querySelector("body");
 const search = document.querySelector(".search-container");
@@ -6,15 +9,13 @@ let apiURL = "https://randomuser.me/api/?nat=us&results=";
 let employeeData = "";
 let employeeNumber = "12";
 
+/* ==================================
+        API FETCH FUNCTIONS
+===================================== */
 async function fetchData(url) {
   const res = await fetch(url);
   return await res.json();
 }
-
-selectOption.addEventListener("change", () => {
-  employeeNumber = selectOption.value;
-  fetchAPI(apiURL, employeeNumber);
-});
 
 function fetchAPI(apiURL, employeeNumber) {
   fetchData(apiURL + employeeNumber)
@@ -24,8 +25,19 @@ function fetchAPI(apiURL, employeeNumber) {
 }
 fetchAPI(apiURL, employeeNumber);
 
+/* ==================================
+    EVENT LISTENERS FOR SELECTOPTION
+===================================== */
+
+selectOption.addEventListener("change", () => {
+  employeeNumber = selectOption.value;
+  fetchAPI(apiURL, employeeNumber);
+});
+
+/* ==================================
+          CREATE GALLERY
+===================================== */
 function employeeAppend(attributes) {
-  console.log("DEBUG", attributes);
   employeeData = attributes;
   const values = employeeData
     .map(
@@ -52,7 +64,9 @@ function employeeAppend(attributes) {
   );
 }
 
-//generates the HTML of the modal and inserts at the end of body tag
+/* ==================================
+         MODAL FUNCITONS
+===================================== */
 function modalDisplay(position) {
   const values = employeeData
     .map(
@@ -93,7 +107,27 @@ function modalDisplay(position) {
   employeeNumber = position;
   closeButton();
 }
-//remove Modal when close button is clicked
+
+// PREVIOUS AND NEXT BUTTONS FOR MODAL
+document.addEventListener("click", (e) => {
+  if (e.target && e.target.id === "modal-next") {
+    document.querySelector(".modal-container").remove();
+    if (employeeNumber <= 10) {
+      modalDisplay(employeeNumber + 1);
+    } else {
+      modalDisplay(0);
+    }
+  } else if (e.target && e.target.id === "modal-prev") {
+    document.querySelector(".modal-container").remove();
+    if (employeeNumber === 0) {
+      modalDisplay(11);
+    } else {
+      modalDisplay(employeeNumber - 1);
+    }
+  }
+});
+
+//CLOSE BUTTON FOR MODAL
 function closeButton() {
   const closeBtn = document.querySelector("#modal-close-btn");
   const modal = document.querySelector(".modal-container");
@@ -104,12 +138,17 @@ function closeButton() {
   }
 }
 
+// GRABBED THIS OFF OF A STACKOVERFLOW QUESTION
+// DATE OF BIRTH FORMAT FUNCTION
 function dateFormat(number) {
   let newdate = number.split("T")[0].replace(/-/g, "/").split("/");
   const convertdate = `${newdate[1]}\/${newdate[2]}\/${newdate[0]} `;
   return convertdate;
 }
-//Function to use the searchbar to narrow results on the page based on search input
+
+/* ==================================
+        SEARCH BAR FUNCTIONS
+===================================== */
 function searchBar() {
   if (search) {
     const searchHTML = `<form action="#" method="get">
@@ -145,21 +184,3 @@ function searchBar() {
   }
 }
 searchBar();
-//Event Listeners for Next & Prev Buttons
-document.addEventListener("click", (e) => {
-  if (e.target && e.target.id === "modal-next") {
-    document.querySelector(".modal-container").remove();
-    if (employeeNumber <= 10) {
-      modalDisplay(employeeNumber + 1);
-    } else {
-      modalDisplay(0);
-    }
-  } else if (e.target && e.target.id === "modal-prev") {
-    document.querySelector(".modal-container").remove();
-    if (employeeNumber === 0) {
-      modalDisplay(11);
-    } else {
-      modalDisplay(employeeNumber - 1);
-    }
-  }
-});
