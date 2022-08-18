@@ -73,6 +73,34 @@ header h1 {
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(50, 50, 50, 0.9);
 }
+label {
+  font-size: x-small;
+}
+
+.list-grid-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 140px;
+  width: 118px;
+}
+.grid-view,
+.list-view {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+}
+.active-list {
+  display: flex;
+  flex-direction: column;
+}
+
+#grid-img:hover,
+#list-img:hover {
+  opacity: 0.5;
+}
 
 /* ===================================== 
    Gallery

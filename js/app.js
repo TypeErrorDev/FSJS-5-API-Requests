@@ -4,6 +4,8 @@
 const gallery = document.querySelector("#gallery");
 const body = document.querySelector("body");
 const search = document.querySelector(".search-container");
+const listView = document.querySelector(".list-view");
+const gridView = document.querySelector(".grid-view");
 let selectOption = document.querySelector("#resultsDisplayed");
 let apiURL = "https://randomuser.me/api/?nat=us&results=";
 let employeeData = "";
@@ -184,3 +186,12 @@ function searchBar() {
     });
   }
 }
+
+/* ==================================
+        LIST/GRID VIEW FUNCTIONS
+===================================== */
+listView.addEventListener("click", () => {
+  gallery.classList.add = ".active-list";
+
+  console.log("list view");
+});
