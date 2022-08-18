@@ -1,24 +1,33 @@
 const gallery = document.querySelector("#gallery");
 const body = document.querySelector("body");
 const search = document.querySelector(".search-container");
-const apiURL12 = "https://randomuser.me/api/?nat=us&results=12";
-// const apiURL12 = "https://randomuser.me/api/?nat=us&results=" + numOfResults;
-// const apiURL24 = "https://randomuser.me/api/?nat=us&results=24";
-// const apiURL36 = "https://randomuser.me/api/?nat=us&results=36";
-// const apiURL48 = "https://randomuser.me/api/?nat=us&results=48";
+let selectOption = document.querySelector("#resultsDisplayed");
+let apiURL = "https://randomuser.me/api/?nat=us&results=12";
 let employeeData = "";
 let employeeNumber = "";
 
-//Calling API to display results from randomuser.me and add them to the page
 function fetchData(url) {
   return fetch(url).then((res) => res.json());
 }
 
-fetchData(apiURL12)
-  .then((data) => data.results)
-  .then(employeeAppend)
-  .then(searchBar)
-  .catch((err) => alert(err));
+selectOption.addEventListener("change", () => {
+  employeeNumber = selectOption.value;
+  apiURL = `https://randomuser.me/api/?nat=us&results=${employeeNumber}`;
+  fetchData(apiURL).then((data) => {
+    employeeData = data.results;
+  });
+  employeeAppend(employeeData);
+  console.log(apiURL);
+});
+
+function fetchAPI() {
+  fetchData(apiURL)
+    .then((data) => data.results)
+    .then(employeeAppend)
+    .then(searchBar)
+    .catch((err) => alert(err));
+}
+fetchAPI();
 
 function employeeAppend(attributes) {
   employeeData = attributes;
@@ -40,12 +49,13 @@ function employeeAppend(attributes) {
   gallery.insertAdjacentHTML("beforeend", values);
   const cards = document.querySelectorAll(".card");
   cards.forEach((card, index) =>
-    card.addEventListener("click", (e) => {
+    card.addEventListener("click", () => {
       modalDisplay(index);
       employeeNumber = index;
     })
   );
 }
+
 //generates the HTML of the modal and inserts at the end of body tag
 function modalDisplay(position) {
   const values = employeeData

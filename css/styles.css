@@ -112,9 +112,11 @@ header h1 {
   border: 3px double rgba(50, 50, 50, 0.9);
   box-shadow: 1px 1px 0px rgba(50, 50, 50, 0.7);
 }
+
 .card-img:hover {
   box-shadow: 2px 2px 3px rgba(50, 50, 50, 0.9);
 }
+
 .card-info-container {
   text-align: left;
 }
