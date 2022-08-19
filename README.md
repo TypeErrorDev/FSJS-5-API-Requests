@@ -28,6 +28,13 @@ A search feature has been added so that students can be filtered by name.
 
 Frameworks, libraries or plugins are not permitted as the focus of this project is to fine tune my ability to work with API's and objects.
 
+### Future plans
+
+I will be adding the following features in the next iteration of updates:
+
+- List/Grid view
+- Custom results displayed
+
 ### Links
 
 - Live Site URL: [Employee API Database hosted by Netlify](https://typeerrordev-employee-api.netlify.app/)
